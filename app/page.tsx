@@ -6,7 +6,7 @@ import { ArrowRightIcon } from "@heroicons/react/16/solid";
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center p-6">
-      <div className="flex w-full bg-sky-950 h-24 rounded-lg justify-center p-10 md:p-5  mb-10">
+      <div className="flex w-full bg-sky-950 h-24 rounded-lg justify-center p-10 md:p-5  mb-10 text-[44px]">
         <FithubLogo />
       </div>
       <div className="flex flex-col justify-center items-center md:flex-row">

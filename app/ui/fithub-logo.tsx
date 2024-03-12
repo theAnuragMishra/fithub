@@ -11,7 +11,7 @@ export default function FithubLogo() {
         width={60}
         height={60}
       />
-      <p className={`text-[44px] ${poppins.className}`}>FitHub</p>
+      <p className={`${poppins.className}`}>FitHub</p>
     </div>
   );
 }
