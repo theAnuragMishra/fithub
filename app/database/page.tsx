@@ -1,3 +1,18 @@
-import axios from "axios";
+import Exercise from "@/app/ui/database/exercise-card";
+import { fetchExercises } from "@/app/lib/data";
 
-export default function Page() {}
+export default async function Page() {
+  const data = await fetchExercises();
+
+  return (
+    <div>
+      {data.map((exercise) => (
+        <Exercise
+          key={exercise.id}
+          name={exercise.name}
+          body_part={exercise.body_part}
+        />
+      ))}
+    </div>
+  );
+}
