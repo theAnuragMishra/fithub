@@ -5,7 +5,7 @@ import {
   CircleStackIcon,
   SparklesIcon,
   UserIcon,
-  BugAntIcon,
+  HomeModernIcon,
   GlobeAltIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
@@ -13,16 +13,16 @@ import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
 const links = [
-  { name: "workout", href: "/workout", icon: BugAntIcon },
-  { name: "calendar", href: "/calendar", icon: CalendarIcon },
+  { name: "home", href: "/home", icon: HomeModernIcon },
+  { name: "calendar", href: "/home/calendar", icon: CalendarIcon },
   {
     name: "database",
-    href: "/database",
+    href: "/home/database",
     icon: CircleStackIcon,
   },
-  { name: "mindfulness", href: "/mindfulness", icon: SparklesIcon },
-  { name: "community", href: "/community", icon: GlobeAltIcon },
-  { name: "profile", href: "/profile", icon: UserIcon },
+  { name: "mindfulness", href: "/home/mindfulness", icon: SparklesIcon },
+  { name: "community", href: "/home/community", icon: GlobeAltIcon },
+  { name: "profile", href: "/home/profile", icon: UserIcon },
 ];
 export default function NavLinks() {
   const pathname = usePathname();
