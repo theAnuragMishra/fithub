@@ -1,12 +1,11 @@
 "use client";
-
+import SportsGymnasticsOutlinedIcon from "@mui/icons-material/SportsGymnasticsOutlined";
+import SpaOutlinedIcon from "@mui/icons-material/SpaOutlined";
+import Groups2OutlinedIcon from "@mui/icons-material/Groups2Outlined";
 import {
   CalendarIcon,
-  CircleStackIcon,
-  SparklesIcon,
   UserIcon,
   HomeModernIcon,
-  GlobeAltIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -18,10 +17,10 @@ const links = [
   {
     name: "database",
     href: "/home/database",
-    icon: CircleStackIcon,
+    icon: SportsGymnasticsOutlinedIcon,
   },
-  { name: "mindfulness", href: "/home/mindfulness", icon: SparklesIcon },
-  { name: "community", href: "/home/community", icon: GlobeAltIcon },
+  { name: "mindfulness", href: "/home/mindfulness", icon: SpaOutlinedIcon },
+  { name: "community", href: "/home/community", icon: Groups2OutlinedIcon },
   { name: "profile", href: "/home/profile", icon: UserIcon },
 ];
 export default function NavLinks() {
