@@ -1,4 +1,4 @@
-import Exercise from "@/app/ui/database/exercise-card";
+import Exercise from "@/app/ui/database/exercise";
 import { fetchExercises } from "@/app/lib/data";
 
 export default async function Page() {
