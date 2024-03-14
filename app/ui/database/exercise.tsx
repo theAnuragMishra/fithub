@@ -13,8 +13,8 @@ interface props {
 }
 export default function Exercise(props: props) {
   return (
-    <div className="mx-2">
-      <Link href={`database/${props.id}`}>
+    <div className="m-2">
+      <Link href={`/home/database/${props.id}`}>
         <div className="text-xl">{props.name}</div>
       </Link>
       <Image src={props.gif_url} height={900} width={1600} alt="exercise gif" />

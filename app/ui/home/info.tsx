@@ -1,4 +1,4 @@
-export default function Exercises() {
+export default function Info() {
   let noOfExercises = 6;
   let totalMinutes = 10;
   return (

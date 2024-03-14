@@ -42,7 +42,7 @@ export default async function Page({
             )
           )}
         </p>
-        <p>
+        <div>
           <strong>Instructions:</strong>
           <ol>
             {data[0].instructions.map((item: string, index: number) => (
@@ -51,7 +51,7 @@ export default async function Page({
               </li>
             ))}
           </ol>
-        </p>
+        </div>
       </div>
     </div>
   );

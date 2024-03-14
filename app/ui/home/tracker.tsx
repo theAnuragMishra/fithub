@@ -4,7 +4,7 @@ import PauseArrowOutlinedIcon from "@mui/icons-material/PauseOutlined";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
 export default function Tracker() {
   return (
-    <div className="w-2/3 flex justify-center">
+    <div className="w-2/3 flex justify-center mt-5 mb-5">
       <Button variant="outlined" className="h-10 w-20">
         Start
       </Button>
