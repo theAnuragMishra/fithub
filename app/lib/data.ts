@@ -8,3 +8,12 @@ export async function fetchExercises() {
     throw new Error("failed to fetch exercises");
   }
 }
+
+export async function fetchParticularExercise(x: string) {
+  try {
+    const data = await sql`SELECT * FROM exercises WHERE Id=${x}`;
+    return data.rows;
+  } catch (error) {
+    throw new Error("failed to fetch exercises");
+  }
+}
