@@ -4,11 +4,7 @@ import { auth } from "@/auth";
 import Image from "next/image";
 export default async function Page() {
   const session = await auth();
-  // if (session && session.user) {
-  //   const pfpSrc = session.user.image;
-  // } else {
-  //   const pfpSrc = "/pfp.png";
-  // }
+
   return (
     <div className="flex flex-col justify-center items-center gap-5">
       {/* <div className="rounded-full w-32 h-32 bg-gray-100 m-10 mb-5"> */}
@@ -23,7 +19,7 @@ export default async function Page() {
       <div className={`w-full text-center ${roboto.className} text-xl`}>
         {session?.user?.name}
       </div>
-      <Attributes height={10} weight={10} highestStreak={1} timeSpent={10} />
+      <Attributes height={10} weight={10} highestStreak={1} bmi={10} />
     </div>
   );
 }
