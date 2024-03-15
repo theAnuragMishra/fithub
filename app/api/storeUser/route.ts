@@ -1,10 +1,7 @@
 import { sql } from "@vercel/postgres";
 import { NextApiRequest, NextApiResponse } from "next";
 import { auth } from "@/auth";
-export default async function addUser(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export default async function GET(req: NextApiRequest, res: NextApiResponse) {
   const session = await auth();
 
   if (!session) {
