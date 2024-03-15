@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+//defining interface for the props passed into Exercise function
 interface props {
   name: string;
   body_part: string;

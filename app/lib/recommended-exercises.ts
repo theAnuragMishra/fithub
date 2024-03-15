@@ -1,5 +1,6 @@
 import { fetchExercisesByBodyPart } from "@/app/lib/data";
 
+//passing all different body parts to get exercises by body part
 export default async function recommended() {
   const waistExercises = await fetchExercisesByBodyPart("waist");
   const upperLegsExercises = await fetchExercisesByBodyPart("upper legs");

@@ -7,12 +7,12 @@ export const authConfig = {
       const isOnHome = nextUrl.pathname.startsWith("/home");
       if (isOnHome) {
         if (isLoggedIn) return true;
-        return false; // Redirect unauthenticated users to login page
+        return false; // Redirecting unauthenticated users to login page
       } else if (isLoggedIn) {
         return Response.redirect(new URL("/home", nextUrl));
       }
       return true;
     },
   },
-  providers: [], // Add providers with an empty array for now
+  providers: [], // Adding providers with an empty array for now
 } satisfies NextAuthConfig;

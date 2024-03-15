@@ -1,5 +1,6 @@
 import { sql } from "@vercel/postgres";
 
+//fetching all exercises
 export async function fetchExercises() {
   try {
     const data = await sql`SELECT * FROM exercises`;
@@ -9,6 +10,7 @@ export async function fetchExercises() {
   }
 }
 
+//fetching a particular exercise
 export async function fetchParticularExercise(x: string) {
   try {
     const data = await sql`SELECT * FROM exercises WHERE Id=${x}`;
@@ -18,6 +20,7 @@ export async function fetchParticularExercise(x: string) {
   }
 }
 
+//fetching exercises by body parts
 export async function fetchExercisesByBodyPart(part: string) {
   try {
     const data = await sql`SELECT * FROM exercises WHERE Body_part=${part}`;

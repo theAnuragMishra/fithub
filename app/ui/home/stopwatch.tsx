@@ -1,38 +1,68 @@
 "use client";
 import { useState, useEffect } from "react";
+import Button from "@mui/material/Button";
+import PlayArrowOutlinedIcon from "@mui/icons-material/PlayArrowOutlined";
+import PauseArrowOutlinedIcon from "@mui/icons-material/PauseOutlined";
+import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
 
 export default function Stopwatch() {
-  const [seconds, setSeconds] = useState(0);
-  const [isActive, setIsActive] = useState(false);
+  const [time, setTime] = useState(0);
+  const [isRunning, setIsRunning] = useState(false);
 
   useEffect(() => {
-    let interval: any;
+    let intervalId: any;
 
-    if (isActive) {
-      interval = setInterval(() => {
-        setSeconds((prevSeconds) => prevSeconds + 1);
+    if (isRunning) {
+      intervalId = setInterval(() => {
+        setTime((prevTime) => prevTime + 1);
       }, 1000);
-    } else {
-      clearInterval(interval);
     }
 
-    return () => clearInterval(interval);
-  }, [isActive]);
+    return () => clearInterval(intervalId);
+  }, [isRunning]);
 
-  const toggleTimer = () => {
-    setIsActive((prevIsActive) => !prevIsActive);
+  const startStopwatch = () => {
+    setIsRunning(true);
   };
 
-  const resetTimer = () => {
-    setSeconds(0);
-    setIsActive(false);
+  const pauseStopwatch = () => {
+    setIsRunning(false);
+  };
+
+  const resetStopwatch = () => {
+    setTime(0);
+    setIsRunning(false);
+  };
+
+  const formatTime = (timeInSeconds: number) => {
+    const hours = Math.floor(timeInSeconds / 3600);
+    const minutes = Math.floor((timeInSeconds % 3600) / 60);
+    const seconds = timeInSeconds % 60;
+
+    const formattedHours = String(hours).padStart(2, "0");
+    const formattedMinutes = String(minutes).padStart(2, "0");
+    const formattedSeconds = String(seconds).padStart(2, "0");
+
+    return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
   };
 
   return (
-    <div>
-      <h1>{seconds}s</h1>
-      <button onClick={toggleTimer}>{isActive ? "Pause" : "Start"}</button>
-      <button onClick={resetTimer}>Reset</button>
+    <div className="w-2/3 flex justify-center mt-5 mb-5">
+      {!isRunning ? (
+        <Button onClick={startStopwatch} variant="outlined">
+          <PlayArrowOutlinedIcon />
+        </Button>
+      ) : (
+        <Button onClick={pauseStopwatch} variant="outlined">
+          <PauseArrowOutlinedIcon />
+        </Button>
+      )}
+      <div className="text-sky-950 border-2 px-5 mx-5 border-black border-solid text-[32px] rounded-lg ">
+        {formatTime(time)}
+      </div>
+      <Button onClick={resetStopwatch} variant="outlined">
+        <ArrowForwardIosOutlinedIcon />
+      </Button>
     </div>
   );
 }

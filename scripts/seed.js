@@ -11,6 +11,7 @@ const options = {
   },
 };
 
+//function to seed users
 async function seedUsers(client) {
   const response = await axios.request(options);
 
