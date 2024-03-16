@@ -12,18 +12,19 @@ const options = {
 
 //function to get gifs
 export async function getGifUrls() {
-  let gifArray;
+  let gifArray: string[] = [];
   const response = await axios.request(options);
+
   console.log("Response Status Text:", response.statusText);
 
   try {
-    response.data.map((exercise: { gifUrl: string }) => {
+    response.data.map(async (exercise: { gifUrl: string }) => {
       gifArray.push(exercise.gifUrl);
     });
     console.log(gifArray);
     return gifArray;
   } catch (error) {
-    console.error("Error seeding users:", error);
+    console.error(error);
     throw error;
   }
 }
