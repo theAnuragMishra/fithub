@@ -1,6 +1,6 @@
 import { sql } from "@vercel/postgres";
 import { unstable_noStore } from "next/cache";
-
+import { auth } from "@/auth";
 const itemsPerPage = 6; //setting number of items per page
 
 //fetching all exercises
@@ -70,5 +70,19 @@ export async function fetchExercisesPages(query: string) {
   } catch (error) {
     console.error("Database Error:", error);
     throw new Error("Failed to fetch total number of exercises.");
+  }
+}
+
+export async function fetchProfile() {
+  unstable_noStore();
+  const session = await auth();
+  try {
+    const data =
+      await sql`SELECT weight, height, streak FROM user_data WHERE email = ${
+        session!.user!.email
+      }`;
+    return data.rows;
+  } catch (error) {
+    console.error(error);
   }
 }
