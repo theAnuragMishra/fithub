@@ -1,9 +1,10 @@
 import Exercise from "@/app/ui/database/exercise";
 import { fetchExercises } from "@/app/lib/data";
-// import { revalidateTag } from "next/cache";
+import { revalidateTag } from "next/cache";
 import { getGifUrls } from "@/app/lib/gifurls";
 
 export default async function Page() {
+  revalidateTag("collection");
   const data = await fetchExercises();
   const gifArray = await getGifUrls();
 
