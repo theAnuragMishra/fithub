@@ -6,7 +6,6 @@ import { getGifUrls } from "@/app/lib/gifurls";
 export default async function Page() {
   const data = await fetchExercises();
   const gifArray = await getGifUrls();
-  console.log(gifArray);
 
   return (
     <div className="grid grid-cols-2">
