@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import { unstable_noStore } from "next/cache";
 const options = {
   method: "GET",
   url: "https://exercisedb.p.rapidapi.com/exercises",
@@ -12,6 +12,7 @@ const options = {
 
 //function to get gifs
 export async function getGifUrls() {
+  unstable_noStore;
   let gifArray: string[] = [];
   const response = await axios.request(options);
 

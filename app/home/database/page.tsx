@@ -1,6 +1,6 @@
 import Exercise from "@/app/ui/database/exercise";
 import { fetchExercisesPages, fetchFilteredExercises } from "@/app/lib/data";
-import { revalidateTag } from "next/cache";
+
 import { getGifUrls } from "@/app/lib/gifurls";
 import Pagination from "@/app/ui/database/pagination";
 import Search from "@/app/ui/search";
@@ -16,7 +16,7 @@ export default async function Page({
   const query = searchParams?.query || "";
   const currentPage = Number(searchParams?.page) || 1;
   const totalPages = await fetchExercisesPages(query);
-  revalidateTag("collection");
+
   // const data = await fetchExercises();
   const gifArray = await getGifUrls();
   const filteredExercises = await fetchFilteredExercises(query, currentPage);
@@ -25,7 +25,7 @@ export default async function Page({
     <div>
       <Search placeholder="Search exercises..." />
       <div className="grid grid-cols-2 mt-10">
-        {filteredExercises.map((exercise, index) => (
+        {filteredExercises.map((exercise) => (
           <Exercise
             id={exercise.id}
             key={exercise.id}

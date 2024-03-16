@@ -1,11 +1,14 @@
-export default function Workout() {
+export default function Today() {
   var today = new Date();
 
-  var day = String(today.getDate()).padStart(2, "0");
-  var month = String(today.getMonth() + 1).padStart(2, "0");
-  var year = String(today.getFullYear()).slice(2);
+  // Get the day, month, and year components
+  var dd = String(today.getDate()).padStart(2, "0");
+  var mm = String(today.getMonth() + 1).padStart(2, "0"); // Jan is 0!
+  var yyyy = today.getFullYear();
 
-  var formattedDate = day + "-" + month + "-" + year;
+  // Format the date string
+  var formattedDate = dd + "-" + mm + "-" + yyyy;
+
   return (
     <div className="flex flex-col justify-center items-center">
       <h1 className="text-6xl">{formattedDate}</h1>
