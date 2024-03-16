@@ -18,7 +18,13 @@ export default function Exercise(props: props) {
       <Link href={`/home/database/${props.id}`}>
         <div className="text-xl">{props.name}</div>
       </Link>
-      <Image src={props.gif_url} height={900} width={1600} alt="exercise gif" />
+      <Image
+        src={props.gif_url}
+        height={900}
+        width={1600}
+        alt="exercise gif"
+        unoptimized
+      />
     </div>
   );
 }

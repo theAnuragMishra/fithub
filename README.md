@@ -22,7 +22,6 @@
 #### Tech Stack
 
 - [x] Next.js
-- [x] Firebase / Appwrite (yet to decide)
 - [x] Postgres
 - [x] Tailwind CSS
 - [x] Framer Motion

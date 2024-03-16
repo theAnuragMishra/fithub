@@ -10,8 +10,8 @@ export default function Page() {
   return (
     <div className="w-full flex flex-col items-center">
       <Image
-        width={400}
-        height={400}
+        width={500}
+        height={500}
         src="/meditation.png"
         alt="mindfulness png"
       />

@@ -25,6 +25,7 @@ export default async function Page({
         width={900}
         height={1600}
         alt="exercise gif"
+        unoptimized
       />
       <div className="p-3 text-xl">
         <p>
