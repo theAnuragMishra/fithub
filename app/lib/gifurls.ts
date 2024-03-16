@@ -11,9 +11,10 @@ const options = {
 };
 
 //function to get gifs
-export default async function getGifs() {
+export async function getGifUrls() {
   let gifArray;
   const response = await axios.request(options);
+  console.log("Response Status Text:", response.statusText);
 
   try {
     response.data.map((exercise: { gifUrl: string }) => {
