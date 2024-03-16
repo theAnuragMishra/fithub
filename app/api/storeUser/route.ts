@@ -13,14 +13,10 @@ export default async function GET(req: NextApiRequest, res: NextApiResponse) {
 
   try {
     // fetching the user's email from the PostgreSQL table
-    const data = await sql`SELECT * FROM user_data WHERE Email='${
-      session!.user!.email
-    }'`;
+    const data = await sql`SELECT * FROM user_data WHERE Email='${userEmail}'`;
     if (data.rows.length === 0) {
       try {
-        await sql`INSER INTO user_data (email) VALUES (${
-          session!.user!.email
-        })`;
+        await sql`INSERT INTO user_data (email) VALUES (${userEmail})`;
       } catch (error) {
         console.error("Error storing email:", error);
         res
