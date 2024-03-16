@@ -21,8 +21,8 @@ async function seedUsers(client) {
     const insertedUsers = await Promise.all(
       response.data.map(async (exercise) => {
         return client.sql`
-        INSERT INTO exercises (Body_part, Equipment, Gif_url, Id, Name, Target, Secondary_muscles, Instructions)
-        VALUES (${exercise.bodyPart}, ${exercise.equipment}, ${exercise.gifUrl}, ${exercise.id}, ${exercise.name}, ${exercise.target}, ${exercise.secondaryMuscles}, ${exercise.instructions})
+        INSERT INTO exercises (Body_part, Equipment, Id, Name, Target, Secondary_muscles, Instructions)
+        VALUES (${exercise.bodyPart}, ${exercise.equipment}, ${exercise.id}, ${exercise.name}, ${exercise.target}, ${exercise.secondaryMuscles}, ${exercise.instructions})
         ON CONFLICT (id) DO NOTHING;
       `;
       })

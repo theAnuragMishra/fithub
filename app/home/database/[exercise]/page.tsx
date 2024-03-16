@@ -1,4 +1,5 @@
 import { fetchParticularExercise } from "@/app/lib/data";
+import { getGifUrls } from "@/app/lib/gifurls";
 import Image from "next/image";
 export default async function Page({
   params,
@@ -9,7 +10,8 @@ export default async function Page({
   //   console.log(exerciseId);
 
   const data = await fetchParticularExercise(exerciseId);
-  console.log(exerciseId);
+  const gifArray = await getGifUrls();
+
   return (
     <div>
       <div className="flex items-end gap-4 mb-3">
@@ -19,7 +21,7 @@ export default async function Page({
 
       <Image
         className="w-4/5"
-        src={data[0].gif_url}
+        src={gifArray[data[0].sr_no - 1]}
         width={900}
         height={1600}
         alt="exercise gif"

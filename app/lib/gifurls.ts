@@ -15,13 +15,13 @@ export async function getGifUrls() {
   let gifArray: string[] = [];
   const response = await axios.request(options);
 
-  console.log("Response Status Text:", response.statusText);
+  //   console.log("Response Status Text:", response.statusText);
 
   try {
     response.data.map(async (exercise: { gifUrl: string }) => {
       gifArray.push(exercise.gifUrl);
     });
-    console.log(gifArray);
+    // console.log(gifArray);
     return gifArray;
   } catch (error) {
     console.error(error);
