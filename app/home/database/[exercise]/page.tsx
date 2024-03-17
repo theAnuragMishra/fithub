@@ -13,47 +13,47 @@ export default async function Page({
   const gifArray = await getGifUrls();
 
   return (
-    <div>
-      <div className="flex items-end gap-4 mb-3">
+    <div className="flex justify-center flex-col">
+      <div className="flex items-end gap-4 mb-20">
         <h1 className="text-6xl">{data[0].name}</h1>
         <h3 className="text-3xl">({data[0].body_part})</h3>
       </div>
+      <div className="flex flex-row gap-10">
+        <Image
+          src={gifArray[data[0].sr_no - 1]}
+          width={900}
+          height={1600}
+          alt="exercise gif"
+          unoptimized
+        />
+        <div className="p-3 text-xl">
+          <p>
+            <strong>Equipment-</strong> {data[0].equipment}
+          </p>
 
-      <Image
-        className="w-4/5"
-        src={gifArray[data[0].sr_no - 1]}
-        width={900}
-        height={1600}
-        alt="exercise gif"
-        unoptimized
-      />
-      <div className="p-3 text-xl">
-        <p>
-          <strong>Equipment-</strong> {data[0].equipment}
-        </p>
-
-        <p>
-          <strong>Target-</strong> {data[0].target}
-        </p>
-        <p>
-          <strong>Secondary Muscles:</strong>&nbsp;
-          {data[0].secondary_muscles.map((item: string, index: number) =>
-            index != data[0].secondary_muscles.length - 1 ? (
-              <span key={index}>{item}, </span>
-            ) : (
-              <span key={index}>{item}</span>
-            )
-          )}
-        </p>
-        <div>
-          <strong>Instructions:</strong>
-          <ol>
-            {data[0].instructions.map((item: string, index: number) => (
-              <li key={index}>
-                {index + 1}. {item}
-              </li>
-            ))}
-          </ol>
+          <p>
+            <strong>Target-</strong> {data[0].target}
+          </p>
+          <p>
+            <strong>Secondary Muscles:</strong>&nbsp;
+            {data[0].secondary_muscles.map((item: string, index: number) =>
+              index != data[0].secondary_muscles.length - 1 ? (
+                <span key={index}>{item}, </span>
+              ) : (
+                <span key={index}>{item}</span>
+              )
+            )}
+          </p>
+          <div>
+            <strong>Instructions:</strong>
+            <ol>
+              {data[0].instructions.map((item: string, index: number) => (
+                <li key={index}>
+                  {index + 1}. {item}
+                </li>
+              ))}
+            </ol>
+          </div>
         </div>
       </div>
     </div>

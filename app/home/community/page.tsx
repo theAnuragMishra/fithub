@@ -1,5 +1,5 @@
 const data = [
-  { name: "Apoorva", score: "0" },
+  { name: "Shreya", score: "100000" },
   { name: "Anurag", score: "100" },
 ];
 export default function Page() {

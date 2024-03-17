@@ -24,7 +24,7 @@ export default async function Page({
   return (
     <div>
       <Search placeholder="Search exercises..." />
-      <div className="grid grid-cols-2 mt-10">
+      <div className="grid grid-cols-3 mt-10">
         {filteredExercises.map((exercise) => (
           <Exercise
             id={exercise.id}

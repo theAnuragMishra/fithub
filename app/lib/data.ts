@@ -1,6 +1,8 @@
 import { sql } from "@vercel/postgres";
 import { unstable_noStore } from "next/cache";
 import { auth } from "@/auth";
+// import bcrypt from "bcryptjs";
+
 const itemsPerPage = 6; //setting number of items per page
 
 //fetching all exercises
@@ -76,12 +78,25 @@ export async function fetchExercisesPages(query: string) {
 export async function fetchProfile() {
   unstable_noStore();
   const session = await auth();
+  // const plainTextEmail = session!.user?.email;
+  // const saltRounds = 10;
+
   try {
+    // bcrypt.hash(
+    //   plainTextEmail!,
+    //   saltRounds,
+    //   async function (err: any, hash: any) {
+    //     // data =
+    //     //   await sql`SELECT weight, height, streak FROM user_data WHERE email = ${hash}`;
+    //     console.log(hash);
+    //   }
+    // );
     const data =
       await sql`SELECT weight, height, streak FROM user_data WHERE email = ${
-        session!.user!.email
+        session?.user!.email
       }`;
-    return data.rows;
+
+    return data!.rows;
   } catch (error) {
     console.error(error);
   }

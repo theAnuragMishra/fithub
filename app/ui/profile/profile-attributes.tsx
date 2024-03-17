@@ -1,4 +1,3 @@
-import { PencilSquareIcon } from "@heroicons/react/16/solid";
 import EditIcon from "@mui/icons-material/Edit";
 interface Props {
   weight: string;
