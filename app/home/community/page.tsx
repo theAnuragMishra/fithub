@@ -1,5 +1,5 @@
 import { fetchDatesForAll, fetchUserNameByUserId } from "@/app/lib/data";
-import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
+// import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 export default async function Page() {
   const data = await fetchDatesForAll();
   // console.log(data);
@@ -15,7 +15,7 @@ export default async function Page() {
           >
             <span className="text-lg font-medium text-blue-800">
               {fetchUserNameByUserId(item.userId)}
-
+              &nbsp;&nbsp;&nbsp;
               {indexInData === 0 ? (
                 <span>🔥🔥🔥</span>
               ) : indexInData === 1 ? (
@@ -25,7 +25,7 @@ export default async function Page() {
               ) : null}
             </span>
             <span className="text-lg font-medium text-blue-600">
-              {item.streak}
+              {item.streak} {item.streak === 1 ? " day" : " days"}
             </span>
           </li>
         ))}

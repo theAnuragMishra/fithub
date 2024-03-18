@@ -1,11 +1,12 @@
 import { roboto } from "@/app/ui/fonts";
 import Attributes from "@/app/ui/profile/profile-attributes";
-import { fetchProfile } from "@/app/lib/data";
+import { fetchProfile, fetchCurrentUserStreak } from "@/app/lib/data";
 import Image from "next/image";
 import { auth } from "@/auth";
 export default async function Page() {
   const data = await fetchProfile();
   const session = await auth();
+  const streak = await fetchCurrentUserStreak();
   return (
     <div className="flex flex-col justify-center items-center gap-5">
       {/* <div className="rounded-full w-32 h-32 bg-gray-100 m-10 mb-5"> */}
@@ -23,7 +24,7 @@ export default async function Page() {
       <Attributes
         height={data![0].height}
         weight={data![0].weight}
-        highestStreak={"1 day"}
+        streak={streak!}
         bmi={Number(
           (data![0].weight / Math.pow(data![0].height / 100, 2)).toFixed(2)
         )}

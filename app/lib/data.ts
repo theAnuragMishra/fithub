@@ -158,6 +158,20 @@ function calculateStreak(dates: string[]): number {
   return maxStreak;
 }
 
+export async function fetchCurrentUserStreak() {
+  unstable_noStore();
+  const session = await auth();
+  try {
+    const data =
+      await sql`SELECT dates from user_data where email = ${session?.user?.email}`;
+
+    const streak = calculateStreak(data.rows[0].dates);
+    return streak;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 export async function fetchUserNameByUserId(uid: number) {
   const data = await sql`SELECT name FROM user_data WHERE user_id = ${uid}`;
   return data.rows[0].name;
