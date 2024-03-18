@@ -24,9 +24,9 @@ export const authConfig = {
           profile!.email
         }`;
         if (data.rows.length === 0) {
-          await sql`INSERT INTO user_data (email, weight, height) VALUES (${
+          await sql`INSERT INTO user_data (email, weight, height, name) VALUES (${
             profile!.email
-          }, 50, 160)`;
+          }, 50, 160, ${profile!.name})`;
         }
       }
       return true;

@@ -103,6 +103,62 @@ export async function fetchProfile() {
 }
 
 export async function fetchDatesForAll() {
-  const data = await sql`SELECT dates from user_data`;
-  console.log(data);
+  unstable_noStore();
+  try {
+    const data = await sql`SELECT dates, user_id from user_data`;
+
+    interface StreakWithIndex {
+      userId: number;
+      streak: number;
+    }
+
+    const streaksWithIndices: StreakWithIndex[] = [];
+
+    // Calculate streaks for each user
+    data.rows.forEach((user) => {
+      const streak = calculateStreak(user.dates);
+      const userId = user.user_id;
+      streaksWithIndices.push({ userId, streak });
+    });
+
+    // Sort streaks in descending order
+    streaksWithIndices.sort((a, b) => b.streak - a.streak);
+
+    // Get top ten streaks with their indices
+    const topTenStreaks: StreakWithIndex[] = streaksWithIndices.slice(0, 10);
+    return topTenStreaks;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function calculateStreak(dates: string[]): number {
+  let streak = 0;
+  let maxStreak = 0;
+  for (let i = dates.length - 1; i > 0; i--) {
+    const current = new Date(dates[i]);
+    const previous = new Date(dates[i - 1]);
+    // console.log("---");
+    // console.log("current date is" + current);
+    // console.log("previous is " + previous);
+    let diff = (current.getTime() - previous.getTime()) / (1000 * 60 * 60 * 24);
+
+    if (isNaN(diff)) {
+      diff = 0;
+    }
+    // console.log("diff is" + diff);
+    // console.log("---");
+    if (diff === 1) {
+      streak++;
+      maxStreak = Math.max(streak, maxStreak);
+    } else {
+      streak = 0;
+    }
+  }
+  return maxStreak;
+}
+
+export async function fetchUserNameByUserId(uid: number) {
+  const data = await sql`SELECT name FROM user_data WHERE user_id = ${uid}`;
+  return data.rows[0].name;
 }

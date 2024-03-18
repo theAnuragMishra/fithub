@@ -56,3 +56,23 @@ export function ProfileSkeleton() {
     </div>
   );
 }
+
+export function LeaderboardSkeleton() {
+  return (
+    <div className="bg-blue-100 py-4 px-6 md:px-8 rounded-lg shadow-md w-full md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto">
+      <h2 className="text-2xl font-semibold mb-4 text-blue-800">LeaderBoard</h2>
+      <div>
+        <li className="flex justify-between items-center py-2 border-b border-blue-200 h-4"></li>
+        <li className="flex justify-between items-center py-2 border-b border-blue-200 h-4"></li>
+        <li className="flex justify-between items-center py-2 border-b border-blue-200 h-4"></li>
+        <li className="flex justify-between items-center py-2 border-b border-blue-200 h-4"></li>
+        <li className="flex justify-between items-center py-2 border-b border-blue-200 h-4"></li>
+        <li className="flex justify-between items-center py-2 border-b border-blue-200 h-4"></li>
+        <li className="flex justify-between items-center py-2 border-b border-blue-200 h-4"></li>
+        <li className="flex justify-between items-center py-2 border-b border-blue-200 h-4"></li>
+        <li className="flex justify-between items-center py-2 border-b border-blue-200 h-4"></li>
+        <li className="flex justify-between items-center py-2 border-b border-blue-200 h-4"></li>
+      </div>
+    </div>
+  );
+}

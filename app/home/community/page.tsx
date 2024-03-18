@@ -1,22 +1,22 @@
-const data = [
-  { name: "Shreya", score: "100000" },
-  { name: "Anurag", score: "100" },
-];
-export default function Page() {
+import { fetchDatesForAll, fetchUserNameByUserId } from "@/app/lib/data";
+
+export default async function Page() {
+  const data = await fetchDatesForAll();
+  // console.log(data);
   return (
     <div className="bg-blue-100 py-4 px-6 md:px-8 rounded-lg shadow-md w-full md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto">
       <h2 className="text-2xl font-semibold mb-4 text-blue-800">Leaderboard</h2>
       <ol>
-        {data.map((item, index) => (
+        {data!.map((item, indexInData) => (
           <li
-            key={index}
+            key={indexInData}
             className="flex justify-between items-center py-2 border-b border-blue-200"
           >
             <span className="text-lg font-medium text-blue-800">
-              {item.name}
+              {fetchUserNameByUserId(item.userId)}
             </span>
             <span className="text-lg font-medium text-blue-600">
-              {item.score}
+              {item.streak}
             </span>
           </li>
         ))}
