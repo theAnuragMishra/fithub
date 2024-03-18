@@ -21,8 +21,8 @@ export default async function Page() {
         {session!.user!.name}
       </div>
       <Attributes
-        height={data![0].height + "cms"}
-        weight={data![0].weight + "Kgs"}
+        height={data![0].height}
+        weight={data![0].weight}
         highestStreak={"1 day"}
         bmi={10}
       />

@@ -1,4 +1,4 @@
-import EditIcon from "@mui/icons-material/Edit";
+import EditableDiv from "@/app/ui/editable-div";
 interface Props {
   weight: string;
   height: string;
@@ -9,14 +9,9 @@ interface Props {
 export default function Attributes(props: Props) {
   return (
     <div className="grid grid-rows-2 grid-cols-2 gap-5">
-      <div className="w-52 h-10 rounded-md bg-gray-100 py-1 px-3 flex items-center justify-between">
-        Weight: {props.weight}
-        <EditIcon className="cursor-pointer" />
-      </div>
-      <div className="w-52 h-10 rounded-md bg-gray-100 py-1 px-3 flex items-center justify-between">
-        Height: {props.height}
-        <EditIcon className="cursor-pointer" />
-      </div>
+      <EditableDiv text={props.weight} what="Kgs" />
+
+      <EditableDiv text={props.height} what="cms" />
       <div className="w-52 h-10 rounded-md bg-gray-100 p-1 px-3 flex items-center justify-start">
         BMI: {props.bmi}
       </div>
