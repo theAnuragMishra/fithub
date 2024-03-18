@@ -31,11 +31,15 @@ export function ExercisesSkeleton() {
 
 export function EachExerciseSkeleton() {
   return (
-    <div className="flex justify-center flex-col">
-      <div className="mb-10 bg-gray-100 w-full h-[80px]"></div>
-      <div className="flex flex-row gap-10">
-        <div className="w-1/2 bg-gray-100 h-[500px]"></div>
-        <div className="p-3 text-xl bg-gray-100 w-1/2 h-[500px]"></div>
+    <div
+      className={`${shimmer} relative overflow-hidden rounded-xl p-2 shadow-sm h-full`}
+    >
+      <div className="flex justify-center flex-col">
+        <div className="mb-10 bg-gray-100 w-full h-[80px]"></div>
+        <div className="flex flex-col lg:flex-row gap-10">
+          <div className="w-1/2 bg-gray-100 h-[500px]"></div>
+          <div className="p-3 text-xl bg-gray-100 w-1/2 h-[500px]"></div>
+        </div>
       </div>
     </div>
   );
@@ -43,8 +47,10 @@ export function EachExerciseSkeleton() {
 
 export function ProfileSkeleton() {
   return (
-    <div className="flex flex-col justify-center items-center gap-5">
-      <div className="w-32 h-32 bg-gray-100 rounded-full"></div>
+    <div
+      className={` ${shimmer} flex flex-col justify-center items-center gap-5`}
+    >
+      <div className={`w-32 h-32 bg-gray-100 rounded-full`}></div>
 
       <div className="w-full text-center text-xl h-[20px]"></div>
       <div className="grid md:grid-cols-2 gap-5">
@@ -59,20 +65,8 @@ export function ProfileSkeleton() {
 
 export function LeaderboardSkeleton() {
   return (
-    <div className="bg-blue-100 py-4 px-6 md:px-8 rounded-lg shadow-md w-full md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto">
-      <h2 className="text-2xl font-semibold mb-4 text-blue-800">LeaderBoard</h2>
-      <div>
-        <li className="flex justify-between items-center py-2 border-b border-blue-200 h-4"></li>
-        <li className="flex justify-between items-center py-2 border-b border-blue-200 h-4"></li>
-        <li className="flex justify-between items-center py-2 border-b border-blue-200 h-4"></li>
-        <li className="flex justify-between items-center py-2 border-b border-blue-200 h-4"></li>
-        <li className="flex justify-between items-center py-2 border-b border-blue-200 h-4"></li>
-        <li className="flex justify-between items-center py-2 border-b border-blue-200 h-4"></li>
-        <li className="flex justify-between items-center py-2 border-b border-blue-200 h-4"></li>
-        <li className="flex justify-between items-center py-2 border-b border-blue-200 h-4"></li>
-        <li className="flex justify-between items-center py-2 border-b border-blue-200 h-4"></li>
-        <li className="flex justify-between items-center py-2 border-b border-blue-200 h-4"></li>
-      </div>
-    </div>
+    <div
+      className={`${shimmer} py-4 bg-gray-100 h-[600px] px-6 md:px-8 rounded-lg shadow-md w-full md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto`}
+    ></div>
   );
 }
