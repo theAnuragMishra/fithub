@@ -1,7 +1,7 @@
 import Link from "next/link";
 import NavLinks from "@/app/ui/home/nav-links";
 import FithubLogo from "@/app/ui/fithub-logo";
-import { PowerIcon } from "@heroicons/react/24/outline";
+import ExitToAppOutlinedIcon from "@mui/icons-material/ExitToAppOutlined";
 import { signOut } from "@/auth";
 
 export default function SideNav() {
@@ -25,7 +25,7 @@ export default function SideNav() {
           }}
         >
           <button className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:p-2 md:px-3">
-            <PowerIcon className="w-6" />
+            <ExitToAppOutlinedIcon className="w-6" />
             <div className="hidden md:block">Sign Out</div>
           </button>
         </form>
