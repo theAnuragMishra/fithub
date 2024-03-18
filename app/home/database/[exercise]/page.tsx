@@ -18,8 +18,9 @@ export default async function Page({
         <h1 className="text-6xl">{data[0].name}</h1>
         <h3 className="text-3xl">({data[0].body_part})</h3>
       </div>
-      <div className="flex flex-row gap-10">
+      <div className="flex flex-col lg:flex-row gap-10">
         <Image
+          className=""
           src={gifArray[data[0].sr_no - 1]}
           width={900}
           height={1600}
