@@ -29,7 +29,7 @@ export default function Page() {
           controls
         /> */}
 
-        <AudioPlayer src="/audios/ten1.mp3" />
+        <AudioPlayer src="" />
       </div>
     </div>
   );

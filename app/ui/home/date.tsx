@@ -27,7 +27,7 @@ export default function Today() {
 
   return (
     <div className="flex flex-row justify-center items-center">
-      <h1 className="text-6xl">
+      <h1 className="text-4xl md:text-6xl">
         {formattedDate} <span className="text-lg">{days[day]}</span>
       </h1>
     </div>

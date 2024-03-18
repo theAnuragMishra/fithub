@@ -1,6 +1,6 @@
 import Exercise from "@/app/ui/database/exercise";
 import { fetchExercisesPages, fetchFilteredExercises } from "@/app/lib/data";
-
+import { ExercisesSkeleton } from "@/app/ui/skeletons";
 import { getGifUrls } from "@/app/lib/gifurls";
 import Pagination from "@/app/ui/database/pagination";
 import Search from "@/app/ui/search";
@@ -24,11 +24,12 @@ export default async function Page({
   return (
     <div>
       <Search placeholder="Search exercises..." />
-      <div className="grid grid-cols-3 mt-10">
+
+      <div className="grid grid-cols-3 mt-10 w-full">
         {filteredExercises.map((exercise) => (
           <Exercise
-            id={exercise.id}
             key={exercise.id}
+            id={exercise.id}
             name={exercise.name}
             body_part={exercise.body_part}
             gif_url={gifArray![exercise.sr_no - 1]}

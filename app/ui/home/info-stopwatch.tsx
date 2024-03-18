@@ -32,13 +32,13 @@ export default function InfoStopwatch() {
     setIsRunning(false);
   };
 
-  const resetStopwatch = () => {
+  const resetStopwatch = async () => {
     setTime(0);
     setIsRunning(false);
     setTotalMinutes(totalMinutes + time / 60);
     setNoOfExercises((prevValue) => prevValue + 1);
 
-    // axios.post("/add-date-to-database");
+    await axios.post("/api/add-date-to-database");
   };
 
   const formatTime = (timeInSeconds: number) => {
@@ -55,7 +55,7 @@ export default function InfoStopwatch() {
 
   return (
     <>
-      <div className="h-20 bg-blue-500 text-2xl text-white w-2/5 rounded-lg flex justify-center items-center mt-5 p-5">
+      <div className="h-20 bg-blue-500 text-xl md:text-2xl text-white rounded-lg flex justify-center items-center mt-5 p-2 md:p-5">
         {noOfExercises} Exercises, {Math.floor(totalMinutes)} Minutes Spent
       </div>
       <div className="w-2/3 flex justify-center mt-5 mb-5">

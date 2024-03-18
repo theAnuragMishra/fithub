@@ -24,7 +24,9 @@ export default async function Page() {
         height={data![0].height}
         weight={data![0].weight}
         highestStreak={"1 day"}
-        bmi={10}
+        bmi={Number(
+          (data![0].weight / Math.pow(data![0].height / 100, 2)).toFixed(2)
+        )}
       />
     </div>
   );

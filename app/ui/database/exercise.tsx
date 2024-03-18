@@ -14,7 +14,7 @@ interface props {
 }
 export default function Exercise(props: props) {
   return (
-    <div className="m-2">
+    <div className="m-2 w-full">
       <Link href={`/home/database/${props.id}`}>
         <div className="text-xl">{props.name}</div>
       </Link>

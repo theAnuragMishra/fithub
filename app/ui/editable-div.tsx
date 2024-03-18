@@ -1,23 +1,31 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import EditIcon from "@mui/icons-material/Edit";
 import CheckIcon from "@mui/icons-material/Check";
+import axios from "axios";
 
 interface props {
   text: string;
   what: string;
+  initialEditing: boolean;
+  adj: string;
 }
 
 export default function EditableDiv(props: props) {
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = useState(props.initialEditing);
   const [text, setText] = useState<string>(props.text);
+
+  useEffect(() => {
+    setIsEditing(props.initialEditing);
+  }, [props.initialEditing]);
 
   const handleEditClick = () => {
     setIsEditing(!isEditing);
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     setIsEditing(false);
+    await axios.post(`/api/update-${props.adj}`, { value: text });
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -42,10 +50,7 @@ export default function EditableDiv(props: props) {
         )}
         {props.what}
       </div>
-      <button
-        id="edit-button"
-        onClick={isEditing ? handleSave : handleEditClick}
-      >
+      <button onClick={isEditing ? handleSave : handleEditClick}>
         {isEditing ? <CheckIcon /> : <EditIcon />}
       </button>
     </div>

@@ -4,11 +4,55 @@ const shimmer =
 
 export function ExerciseSkeleton() {
   return (
-    <div className="m-2">
-      <div>
-        <div className="text-xl"></div>
+    <div
+      className={`${shimmer} relative overflow-hidden rounded-xl bg-gray-100 p-2 shadow-sm h-full`}
+    >
+      <div className="m-2">
+        <div>
+          <div className="w-full h-[250px]"></div>
+        </div>
       </div>
-      <div />
+    </div>
+  );
+}
+
+export function ExercisesSkeleton() {
+  return (
+    <div className="grid grid-cols-3 mt-10 gap-10">
+      <ExerciseSkeleton />
+      <ExerciseSkeleton />
+      <ExerciseSkeleton />
+      <ExerciseSkeleton />
+      <ExerciseSkeleton />
+      <ExerciseSkeleton />
+    </div>
+  );
+}
+
+export function EachExerciseSkeleton() {
+  return (
+    <div className="flex justify-center flex-col">
+      <div className="mb-10 bg-gray-100 w-full h-[80px]"></div>
+      <div className="flex flex-row gap-10">
+        <div className="w-1/2 bg-gray-100 h-[500px]"></div>
+        <div className="p-3 text-xl bg-gray-100 w-1/2 h-[500px]"></div>
+      </div>
+    </div>
+  );
+}
+
+export function ProfileSkeleton() {
+  return (
+    <div className="flex flex-col justify-center items-center gap-5">
+      <div className="w-32 h-32 bg-gray-100 rounded-full"></div>
+
+      <div className="w-full text-center text-xl h-[20px]"></div>
+      <div className="grid md:grid-cols-2 gap-5">
+        <div className="w-52 h-10 rounded-md bg-gray-100"></div>
+        <div className="w-52 h-10 rounded-md bg-gray-100 "></div>
+        <div className="w-52 h-10 rounded-md bg-gray-100 "></div>
+        <div className="w-52 h-10 rounded-md bg-gray-100 "></div>
+      </div>
     </div>
   );
 }

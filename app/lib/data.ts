@@ -101,3 +101,8 @@ export async function fetchProfile() {
     console.error(error);
   }
 }
+
+export async function fetchDatesForAll() {
+  const data = await sql`SELECT dates from user_data`;
+  console.log(data);
+}
