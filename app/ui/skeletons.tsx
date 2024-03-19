@@ -59,6 +59,7 @@ export function ProfileSkeleton() {
         <div className="w-52 h-10 rounded-md bg-gray-100 "></div>
         <div className="w-52 h-10 rounded-md bg-gray-100 "></div>
       </div>
+      <div className="mt-24 bg-gray-100 h-10 w-32"></div>
     </div>
   );
 }
