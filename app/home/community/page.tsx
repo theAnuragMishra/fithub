@@ -22,7 +22,7 @@ export default async function Page() {
               }
             )}
           >
-            <span className="text-lg font-medium text-blue-800">
+            <span className="text-lg font-medium text-blue-800 w-48 sm:w-96 md:w-64 lg:w-96 ">
               {await fetchUserNameByUserId(item.userId)}
               &nbsp;&nbsp;&nbsp;
               {indexInData === 0 ? (
