@@ -5,7 +5,7 @@ import Link from "next/link";
 export default async function Recommended() {
   const data = await recommended();
   return (
-    <div className="mt-5 bg-gray-100 p-5 rounded-lg w-full flex items-center flex-col bg-gray-300">
+    <div className="mt-5 bg-gray-100 p-5 rounded-lg w-full flex items-center flex-col ">
       <h2 className="text-2xl mb-2">Recommended Exercises</h2>
       <div className="grid sm:grid-cols-3 lg:grid-cols-3 gap-5">
         {data.map((item, index) => (
