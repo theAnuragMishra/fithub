@@ -41,7 +41,10 @@ export default async function Page() {
           await signOut({ redirectTo: "/" });
         }}
       >
-        <Button variant="outlined" className="bg-red-700 text-white">
+        <Button
+          variant="outlined"
+          className="bg-red-700 text-white hover:bg-red-800"
+        >
           <DeleteOutlineOutlinedIcon />
           Delete Account
         </Button>
