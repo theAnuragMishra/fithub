@@ -29,7 +29,7 @@ export default function Page() {
           controls
         /> */}
 
-        <AudioPlayer src="" />
+        <AudioPlayer src="http://streaming.tdiradio.com:8000/house.mp3" />
       </div>
     </div>
   );

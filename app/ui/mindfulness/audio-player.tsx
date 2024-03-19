@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-
+import PlayArrowOutlinedIcon from "@mui/icons-material/PlayArrowOutlined";
+import PauseArrowOutlinedIcon from "@mui/icons-material/PauseOutlined";
 interface AudioPlayerProps {
   src: string;
 }
@@ -71,16 +72,16 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src }) => {
   return (
     <div>
       <audio ref={audioRef} src={src}></audio>
-      <button onClick={togglePlay}>{isPlaying ? "Pause" : "Play"}</button>
+      <button onClick={togglePlay} className="w-6">
+        {isPlaying ? <PauseArrowOutlinedIcon /> : <PlayArrowOutlinedIcon />}
+      </button>
       <input
         type="range"
         value={currentTime}
         max={duration}
         onChange={handleSeek}
       />
-      <div>
-        {formatTime(currentTime)} / {formatTime(duration)}
-      </div>
+      <div>{/* {formatTime(currentTime)} / {formatTime(duration)} */}</div>
     </div>
   );
 };
