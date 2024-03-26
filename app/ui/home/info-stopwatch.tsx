@@ -5,6 +5,7 @@ import PlayArrowOutlinedIcon from "@mui/icons-material/PlayArrowOutlined";
 import PauseArrowOutlinedIcon from "@mui/icons-material/PauseOutlined";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
 import axios from "axios";
+import { revalidatePath } from "next/cache";
 
 export default function InfoStopwatch() {
   const [time, setTime] = useState(0);
@@ -39,6 +40,7 @@ export default function InfoStopwatch() {
     setNoOfExercises((prevValue) => prevValue + 1);
 
     await axios.post("/api/add-date-to-database");
+    revalidatePath("/home/community");
   };
 
   const formatTime = (timeInSeconds: number) => {
